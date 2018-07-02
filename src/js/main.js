@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Home from './components/Home.vue';
+import '../styles/style.less';
+
 // import store from '../store';
 
 /* eslint-disable no-new */
