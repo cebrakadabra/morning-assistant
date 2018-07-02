@@ -5,7 +5,8 @@ const express = require('express'),
 		fs = require('fs'),
     server = require('http').createServer(app),
     cors = require('cors'),
-    path = require('path');
+    path = require('path'),
+    weatherforecast = require('./src/api/weatherforecast');
 
 
 app.use(cors());
@@ -16,6 +17,9 @@ app.use(express.static(path.join(__dirname + '/build')));
 app.use('/vendor', express.static(__dirname + '/src/vendor'));
 app.use('/js', express.static(__dirname + '/src/js'));
 
+// weather api
+app.use('/api/weatherforecast', weatherforecast);
+
 // routing
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -23,7 +27,7 @@ app.get('/', function (req, res) {
 
 
 // set our port
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 1337;
 var server_ip_address = 'localhost';
 var env = process.env.NODE_ENV || 'development';
 
