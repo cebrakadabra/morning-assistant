@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import moment from 'moment';
 import Home from './components/Home.vue';
 import '../styles/style.less';
 
@@ -7,13 +8,18 @@ import '../styles/style.less';
 /* eslint-disable no-new */
 Vue.config.productionTip = false;
 //
-// Vue.filter('formatDate', (value) => {
-//     return moment(String(value)).format('ddd, MMM Do YYYY - hh:mma');
-// });
-//
-// Vue.filter('formatShortDate', (value) => {
-//     return moment(String(value)).format('MM/DD hh:mma');
-// });
+Vue.filter('formatDate', (value) => {
+    const nowCheck = moment.unix(value).format('dh');
+    const todayCheck = moment().format('dh');
+    if (nowCheck === todayCheck) {
+        return 'Now';
+    }
+    return moment.unix(value).format('ha');
+});
+
+Vue.filter('round', (value) => {
+    return Math.round(value);
+});
 
 const routes = {
     '/': Home

@@ -1,15 +1,111 @@
 .weather-container {
-    text-align: center;
-
     .weather-current {
         width: 100%;
-        padding: 15px;
+        padding: 25px;
+        border-bottom: 1px solid #454545;
+
+        .weather-icon {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-right: 10px;
+
+            img {
+                width: inherit;
+                height: inherit;
+            }
+        }
+
+        .weather-text {
+            span.temperature {
+                color: #fff;
+                font-size: 45px;
+            }
+
+            span.temperature-summary {
+                color: #fff;
+                font-size: 20px;
+            }
+
+            span.temperature-info {
+                color: #fff;
+                font-size: 20px;
+
+                span.temperature-info-additional {
+                    font-size: 14px;
+                }
+            }
+        }
     }
 
-    h1 {
-        font-family: Helvetica;
-        color: #ededed;
-        text-transform: uppercase;
-        padding-top: 100px;
+    .weather-hourly-forecast {
+        width: 100%;
+
+        .weather-hourly-summary {
+            width: 100%;
+            border-top: 1px solid #454545;
+            padding: 10px;
+
+            p {
+                font-size: 12px;
+                padding: 0;
+                margin: 0;
+                color: #999;
+            }
+        }
+
+        .weather-hourly-forecast-items {
+            min-height: 40px;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            overflow: hidden;
+            overflow-x: scroll;
+
+            .weather-hourly-forecast-item {
+                float: left;
+                width: 100px;
+                white-space: nowrap;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                img {
+                    width: 25px;
+                    display: block;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                p {
+                    text-align: center;
+                    padding: 0;
+                    margin: 0;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+
+                    span.time {
+                        color: #999;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
+
+                    span.temp {
+                        color: #999;
+                        font-size: 12px;
+                    }
+
+                    span.precip {
+                        color: #5ac8fa;
+                        font-size: 10px;
+                        padding-top: 5px;
+                        height: 10px;
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }
