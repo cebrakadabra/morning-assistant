@@ -7,7 +7,7 @@ import '../styles/style.less';
 
 /* eslint-disable no-new */
 Vue.config.productionTip = false;
-//
+
 Vue.filter('formatDate', (value) => {
     const nowCheck = moment.unix(value).format('dh');
     const todayCheck = moment().format('dh');
@@ -15,6 +15,14 @@ Vue.filter('formatDate', (value) => {
         return 'Now';
     }
     return moment.unix(value).format('ha');
+});
+
+Vue.filter('sunTimeStamps', (value) => {
+    return moment.unix(value).format('hh:mma');
+});
+
+Vue.filter('getDay', (value) => {
+    return moment.unix(value).format('dddd');
 });
 
 Vue.filter('round', (value) => {

@@ -2,7 +2,7 @@
     <div class="weather-container">
         <div class="weather-current">
             <div class="weather-icon">
-                <img v-bind:src="'assets/' + this.weatherdata.currently.icon + '.png'" alt="">
+                <img v-if="this.weatherdata.currently.icon !== null" v-bind:src="'assets/' + this.weatherdata.currently.icon + '.png'" alt="">
             </div>
             <div class="weather-text">
                 <p>
@@ -35,6 +35,33 @@
                 <p>{{this.weatherdata.daily.summary}}</p>
             </div>
         </div>
+        <div class="weather-daily-forecast">
+            <ul class="weather-daily-forecast-items">
+                <li class="weather-daily-forecast-item" v-for="ditem in this.weatherdata.daily.data">
+                    <div class="dayname">
+                        <p>{{ditem.time | getDay}}</p>
+                    </div>
+                    <div class="icon">
+                        <img v-bind:src="'assets/' + ditem.icon + '.png'" alt="">
+                    </div>
+                    <div class="max">
+                        <p class="high">{{ditem.apparentTemperatureHigh | round}}</p>
+                    </div>
+                    <div class="min">
+                        <p>{{ditem.apparentTemperatureLow | round}}</p>
+                    </div>
+                    <div class="sunrise">
+                        <img v-bind:src="'assets/sunrise.png'" alt="">
+                        <span>{{ditem.sunriseTime | sunTimeStamps}}</span>
+                    </div>
+                    <div class="sunset">
+                        <img v-bind:src="'assets/sunset.png'" alt="">
+                        <span>{{ditem.sunsetTime | sunTimeStamps}}</span>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -47,7 +74,22 @@
         components: {},
         data() {
             return {
-                weatherdata: null,
+                weatherdata: {
+                    currently: {
+                        icon: null,
+                        temperature: null,
+                        humidity: null,
+                        windspeed: null,
+                        visibility: null,
+                    },
+                    daily: {
+                        data: [],
+                        summary: null
+                    },
+                    hourly: {
+                        data: []
+                    }
+                },
                 errorMessage: false,
             }
         },
