@@ -1,5 +1,6 @@
 <template>
     <div class="weather-container">
+        <p class="weather-updated">last updated: {{lastFetched | formatTimeStamp}}</p>
         <div class="weather-current">
             <div class="weather-icon">
                 <img v-if="this.weatherdata.currently.icon !== null" v-bind:src="'assets/' + this.weatherdata.currently.icon + '.png'" alt="">
@@ -66,6 +67,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import WeatherService from '../services/WeatherService';
     import './Weather.less';
 
@@ -90,19 +92,36 @@
                         data: []
                     }
                 },
+                lastFetched: null,
                 errorMessage: false,
             }
         },
         mounted() {
+            // call once on mount
             WeatherService().getEventProfiles((response) => {
                 this.loading = false;
                 if (response) {
                     this.weatherdata = response.data;
                     console.log(response.data);
+                    this.lastFetched = moment();
                 } else {
                     this.errorMessage = true;
                 }
             });
+
+            // and then every 5min
+            setInterval(() => {
+                WeatherService().getEventProfiles((response) => {
+                    this.loading = false;
+                    if (response) {
+                        this.weatherdata = response.data;
+                        console.log(response.data);
+                        this.lastFetched = moment();
+                    } else {
+                        this.errorMessage = true;
+                    }
+                });
+            }, 300000);
         },
         computed: {}
     }

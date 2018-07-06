@@ -21,6 +21,13 @@ Vue.filter('sunTimeStamps', (value) => {
     return moment.unix(value).format('hh:mma');
 });
 
+Vue.filter('formatTimeStamp', (value) => {
+    if (!value) {
+        return null;
+    }
+    return moment(value).format('MM/DD/YYYY - hh:mma');
+});
+
 Vue.filter('getDay', (value) => {
     return moment.unix(value).format('dddd');
 });
