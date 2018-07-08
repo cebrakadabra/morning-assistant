@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/*', function (req, res) {
     axios({
         method: 'get',
-        url: 'https://api.darksky.net/forecast/b1bd9cae7aafde055a766e2e7a22d808/47.5631297,13.0871057?units=auto',
+        url: 'https://api.darksky.net/forecast/b1bd9cae7aafde055a766e2e7a22d808/47.5961,13.1678?units=auto',
         responseType: 'json',
     }).then(function (response) {
         res.status(response.status);
