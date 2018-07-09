@@ -29,6 +29,11 @@ Vue.filter('formatTimeStamp', (value) => {
 });
 
 Vue.filter('getDay', (value) => {
+    const nowCheck = moment.unix(value).format('d');
+    const todayCheck = moment().format('d');
+    if (nowCheck === todayCheck) {
+        return 'Today';
+    }
     return moment.unix(value).format('dddd');
 });
 
