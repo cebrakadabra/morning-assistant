@@ -10,9 +10,9 @@
                     <span class="temperature">{{this.weatherdata.currently.temperature | round}}°</span> <span class="temperature-summary">{{this.weatherdata.currently.summary}} &nbsp;&nbsp;&nbsp;</span><br>
                     <span class="temperature-info">
                         <span class="temperature-info-additional">
-                            <i class="fas fa-thermometer-quarter"></i> {{this.weatherdata.currently.humidity * 100}}% &nbsp;&nbsp;&nbsp;
-                            <i class="far fa-compass"></i> {{this.weatherdata.currently.windSpeed}} km/h &nbsp;&nbsp;&nbsp;
-                            <i class="fas fa-eye"></i> {{this.weatherdata.currently.visibility}} km
+                            <i class="fas fa-thermometer-quarter"></i> {{this.weatherdata.currently.humidity * 100 | roundTwo}}% &nbsp;&nbsp;&nbsp;
+                            <i class="far fa-compass"></i> {{this.weatherdata.currently.windSpeed | roundTwo}} km/h &nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-eye"></i> {{this.weatherdata.currently.visibility | roundTwo}} km
                         </span>
 
                     </span>
