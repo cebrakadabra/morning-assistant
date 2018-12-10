@@ -98,7 +98,7 @@
         },
         mounted() {
             // call once on mount
-            WeatherService().getEventProfiles((response) => {
+            WeatherService().getWeather((response) => {
                 this.loading = false;
                 if (response) {
                     this.weatherdata = response.data;
@@ -111,7 +111,7 @@
 
             // and then every 5min
             setInterval(() => {
-                WeatherService().getEventProfiles((response) => {
+                WeatherService().getWeather((response) => {
                     this.loading = false;
                     if (response) {
                         this.weatherdata = response.data;
