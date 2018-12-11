@@ -2,9 +2,22 @@
     <div>
         <div class="traffic-map" id="traffic-map"></div>
         <div class="duration-container">
-            <p>
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i> <i class="fa fa-car" aria-hidden="true"></i> <i class="fa fa-long-arrow-right" aria-hidden="true"></i> <i class="fa fa-briefcase" aria-hidden="true"></i> {{this.trafficdata.duration_in_traffic | calcmin }}
-            </p>
+            <div class="traffic-info">
+                <div class="traffic-symbols"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> <i
+                    class="fas fa-car" aria-hidden="true"></i> <i class="fas fa-long-arrow-alt-right"></i> <i
+                    class="fas fa-briefcase" aria-hidden="true"></i></div>
+                <div class="traffic-duration-real"
+                     v-bind:class="{
+                     green: ((this.trafficdata.duration_in_traffic / 60) <= 19),
+                     yellow:  ((this.trafficdata.duration_in_traffic / 60) > 19 && (this.trafficdata.duration_in_traffic / 60) < 25),
+                     red: ((this.trafficdata.duration_in_traffic / 60) >= 25)
+                     }"
+                >{{this.trafficdata.duration_in_traffic | calcmin }} min
+                    <br>
+                    <span class="traffic-duration-normal">Usually this takes {{this.trafficdata.duration | calcmin}} min</span>
+                    <span class="km"> ({{this.trafficdata.distance | calckm}}km)</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -65,10 +78,8 @@
                         // error occured
                     }
                 });
-            }, 300000);
+            }, 1800000); // execute this every half an hour
         },
-        computed: {
-
-        },
+        computed: {},
     }
 </script>

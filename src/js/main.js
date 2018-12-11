@@ -47,7 +47,11 @@ Vue.filter('roundTwo', (value) => {
 
 
 Vue.filter('calcmin', (value) => {
-    return Math.round((value/60) * 100) / 100;
+    return Math.round((value/60) * 1) / 1;
+});
+
+Vue.filter('calckm', (value) => {
+   return Math.round((value/1000) * 10) / 10;
 });
 
 const routes = {
