@@ -1,6 +1,9 @@
 #traffic-map {
     height: 100%;
-    width: 100%;
+    width: 35%;
+    position: absolute;
+    z-index: 1;
+    right: 0;
 
     .gmnoprint {
         display: none !important;
@@ -8,5 +11,64 @@
 
     button {
         display: none !important;
+    }
+}
+
+.duration-container {
+    background: #fff;
+    width: 34%;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    bottom: 1%;
+    right: 0.5%;
+    box-shadow: 2px 2px 1px #ddd;
+}
+
+
+.traffic-info {
+    width: 100%;
+    display: block;
+
+    .traffic-symbols {
+        font-size: 16px;
+        color: #aaa;
+        line-height: 1;
+        display: block;
+        float: left;
+        width: 30%;
+        padding: 5px;
+        padding-top: 13px;
+    }
+
+    .traffic-duration-real {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1;
+        display: block;
+        float: right;
+        width: 50%;
+        text-align: right;
+        padding-right: 5px;
+        padding-top: 8px;
+        line-height: 0.8;
+
+        .km, .traffic-duration-normal {
+            font-size: 8px;
+            font-weight: normal;
+            color: #aaa;
+        }
+    }
+
+    .traffic-duration-real.green {
+        color: green;
+    }
+
+    .traffic-duration-real.yellow {
+        color: orange;
+    }
+
+    .traffic-duration-real.red {
+        color: red;
     }
 }
