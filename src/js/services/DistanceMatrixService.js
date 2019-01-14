@@ -1,19 +1,17 @@
-import axios from 'axios';
-
 export default function DistanceMatrixService() {
     return {
-        getDistance: (origins, destinations, service, callback) => {
-            service.getDistanceMatrix({
+        getDistance: (origins, destinations, gservice, callback) => {
+            gservice.getDistanceMatrix({
                 origins: origins,
                 destinations: destinations,
                 travelMode: 'DRIVING',
                 drivingOptions: {
                     departureTime: new Date(),
-                    trafficModel: 'pessimistic'
+                    trafficModel: 'pessimistic',
                 },
                 avoidHighways: false,
                 avoidTolls: false,
             }, callback);
-        }
-    }
+        },
+    };
 }

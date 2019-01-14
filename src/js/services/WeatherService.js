@@ -8,7 +8,7 @@ export default function WeatherService() {
                     callback(data);
                 }, (error) => {
                     callback(null);
-                })
-        }
-    }
+                });
+        },
+    };
 }

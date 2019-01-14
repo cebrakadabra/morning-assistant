@@ -34,14 +34,17 @@
         },
         methods: TrafficController().methods,
         mounted() {
+            // initialize gmaps
             const map = new google.maps.Map(document.getElementById('traffic-map'), {
                 zoom: 10,
                 center: {lat: 47.6628035, lng: 13.0867061},
                 // styles: mapStyle,
             });
+            // put traffic layer on top
             const trafficLayer = new google.maps.TrafficLayer();
             trafficLayer.setMap(map);
 
+            // initialize distanceMatrixService from Google
             const distanceMatrixService = new google.maps.DistanceMatrixService();
 
             const origins = ['Markt 77, 5440 Golling an der Salzach'];
