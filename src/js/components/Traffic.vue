@@ -23,22 +23,16 @@
 </template>
 
 <script>
-    import DistanceMatrixService from '../services/DistanceMatrixService';
-    import _ from 'lodash';
+    import TrafficController from '../controllers/TrafficController';
     import './Traffic.less';
 
     export default {
         name: 'Traffic',
         components: {},
         data() {
-            return {
-                trafficdata: {
-                    distance: null,
-                    duration: null,
-                    duration_in_traffic: null,
-                }
-            }
+            return TrafficController().defaultData;
         },
+        methods: TrafficController().methods,
         mounted() {
             const map = new google.maps.Map(document.getElementById('traffic-map'), {
                 zoom: 10,
@@ -52,32 +46,13 @@
 
             const origins = ['Markt 77, 5440 Golling an der Salzach'];
             const destinations = ['Halleiner Landesstraße 24, 5061 Elsbethen'];
+
             // call once on mount
-            DistanceMatrixService().getDistance(origins, destinations, distanceMatrixService, (response) => {
-                if (response) {
-                    this.trafficdata.distance = _.get(response, 'rows[0].elements[0].distance.value');
-                    this.trafficdata.duration = _.get(response, 'rows[0].elements[0].duration.value');
-                    this.trafficdata.duration_in_traffic = _.get(response, 'rows[0].elements[0].duration_in_traffic.value');
-                    console.log(response);
-                } else {
-                    // this.errorMessage = true;
-                    // error occured
-                }
-            });
+            this.getDistance(origins, destinations, distanceMatrixService);
 
             // and then every 5min
             setInterval(() => {
-                DistanceMatrixService().getDistance(origins, destinations, distanceMatrixService, (response) => {
-                    if (response) {
-                        this.trafficdata.distance = _.get(response, 'rows[0].elements[0].distance.value');
-                        this.trafficdata.duration = _.get(response, 'rows[0].elements[0].duration.value');
-                        this.trafficdata.duration_in_traffic = _.get(response, 'rows[0].elements[0].duration_in_traffic.value');
-                        console.log(response);
-                    } else {
-                        // this.errorMessage = true;
-                        // error occured
-                    }
-                });
+                this.getDistance(origins, destinations, distanceMatrixService);
             }, 1800000); // execute this every half an hour
         },
         computed: {},
