@@ -4,7 +4,7 @@
     "description": "Morning assistant for my raspberry pi touch screen",
     "main": "app.js",
     "engines": {
-        "node": ">=8"
+        "node": ">=10"
     },
     "scripts": {
         "dev": "webpack-dev-server --open",
@@ -21,7 +21,7 @@
     "author": "Christoph Eberl",
     "license": "MIT",
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.19.x",
         "babel-core": "^6.21.0",
         "babel-eslint": "^8.0.2",
         "babel-loader": "^7.1.2",
@@ -39,18 +39,18 @@
         "config": "^1.30.0",
         "copy-webpack-plugin": "^4.2.1",
         "cors": "^2.8.4",
-        "css-loader": "^0.28.4",
+        "css-loader": "^3.x",
         "eslint": "^4.11.0",
         "eslint-config-airbnb": "^16.1.0",
         "eslint-plugin-import": "^2.8.0",
         "eslint-plugin-jsx-a11y": "^6.0.2",
         "eslint-plugin-react": "^7.5.1",
-        "express": "4.5.0",
+        "express": "^4.15.3",
         "file-loader": "^0.11.2",
-        "html-webpack-plugin": "^2.30.1",
+        "html-webpack-plugin": "^3.2.0",
         "http": "^0.0.0",
-        "less": "^2.7.2",
-        "less-loader": "^4.0.5",
+        "less": "^3.10.3",
+        "less-loader": "^5.0.0",
         "lodash": "^4.17.10",
         "moment": "^2.22.1",
         "moment-timezone": "^0.5.16",
@@ -72,12 +72,15 @@
         "vue-loader": "^14.2.2",
         "vue-template-compiler": "^2.5.16",
         "vuex": "^3.0.1",
-        "webpack": "^3.8.x",
-        "webpack-dev-server": "^2.9.x",
+        "webpack": "^4.20.2",
+        "webpack-dev-server": "^3.1.4",
         "winston": "^2.4.1"
     },
     "bugs": {
         "url": "https://github.com/cebrakadabra/morning-assistant/issues"
     },
-    "homepage": "https://github.com/cebrakadabra/morning-assistant#readme"
+    "homepage": "https://github.com/cebrakadabra/morning-assistant#readme",
+    "devDependencies": {
+        "webpack-cli": "^3.3.9"
+    }
 }
