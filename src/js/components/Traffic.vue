@@ -48,7 +48,7 @@
             const distanceMatrixService = new google.maps.DistanceMatrixService();
 
             const origins = ['Markt 77, 5440 Golling an der Salzach'];
-            const destinations = ['Halleiner Landesstraße 24, 5061 Elsbethen'];
+            const destinations = ['Schwarzenbergkaserne, 5071 Salzburg'];
 
             // call once on mount
             this.getDistance(origins, destinations, distanceMatrixService);
