@@ -54,7 +54,7 @@
         "lodash": "^4.17.10",
         "moment": "^2.22.1",
         "moment-timezone": "^0.5.16",
-        "node-notifier": "^5.1.2",
+        "node-notifier": "^8.0.1",
         "passport": "^0.4.0",
         "passport-http": "^0.3.0",
         "path": "^0.12.7",
