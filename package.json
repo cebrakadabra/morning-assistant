@@ -21,7 +21,7 @@
     "author": "Christoph Eberl",
     "license": "MIT",
     "dependencies": {
-        "axios": "^0.19.x",
+        "axios": "^0.21.x",
         "babel-core": "^6.21.0",
         "babel-eslint": "^8.0.2",
         "babel-loader": "^7.1.2",
