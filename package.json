@@ -61,7 +61,7 @@
         "postcss-cssnext": "^3.0.2",
         "postcss-import": "^10.0.0",
         "postcss-simple-vars": "^4.0.0",
-        "qs": "^6.5.1",
+        "qs": "^6.9.7",
         "query-string": "^5.0.0",
         "style-loader": "^0.18.2",
         "throw": "^1.1.0",
